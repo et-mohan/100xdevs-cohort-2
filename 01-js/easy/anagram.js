@@ -5,7 +5,12 @@
 */
 
 function isAnagram(str1, str2) {
-
+   console.log(str1);
+   str1=str1.toLowerCase().split('').sort();
+   str2=str2.toLowerCase().split('').sort();   
+   if(str1.join()==str2.join()) return true;
+   return false;
 }
-
+result=isAnagram("abc!", "!Bac")
+console.log(result)
 module.exports = isAnagram;

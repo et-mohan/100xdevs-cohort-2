@@ -4,9 +4,20 @@
 */
 
 function isPalindrome(str) {
-  main_string=str.toLowerCase().replace(/[^a-z0-9]/g, '').split('').join('');
-  reverse_string=str.toLowerCase().replace(/[^a-z0-9]/g, '').split('').reverse().join('');
-  if(main_string==reverse_string){ return true;}
+  main_string = str
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "")
+    .split("")
+    .join("");
+  reverse_string = str
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "")
+    .split("")
+    .reverse()
+    .join("");
+  if (main_string == reverse_string) {
+    return true;
+  }
   return false;
 }
 

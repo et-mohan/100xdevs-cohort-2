@@ -16,6 +16,59 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(input) {
+    this.result += parseFloat(input);
+  }
+
+  subtract(input) {
+    this.result -= parseFloat(input);
+  }
+
+  multiply(input) {
+    this.result *= parseFloat(input);
+  }
+
+  divide(input) {
+    const parsedInput =(input);
+    if (parsedInput !== 0) {
+      this.result /= parsedInput;
+    } else {
+      throw new Error('Invalid');
+    }
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(input) {
+    const cleanInput = input.trim().replace(/\s+/g, "");
+    const isValidInput = /^[0-9+\-*/().]+$/.test(cleanInput);
+
+    if (!isValidInput) {
+      throw new Error("Invalid input");
+    }
+   
+    this.result = eval(cleanInput);
+    if(this.result==Infinity)throw new Error("Invalid result");
+    return this.result;
+  }
+}
+
+// Example usage:
+const calculator = new Calculator();
+
+calculator.calculate("10 + 2 * (6 - (4 + 1) / 2) + 7");
+console.log(calculator.getResult()); // Output: 24
+
 
 module.exports = Calculator;
